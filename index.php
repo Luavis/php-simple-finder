@@ -3,8 +3,8 @@
 
 	$dir_to_browse = "./";
 	//Hide Folder Name
-	$exclude = array('.','..','.ftpquota','.htaccess', '.htpasswd', 'folder.gif');
-	$exclude_ext = array('.php', '.html', '.css', '.js');
+	$exclude = array('.','..','.ftpquota','.htaccess', '.htpasswd', 'folder.png');
+	$exclude_ext = array('.php', '.html', '.css', '.js', '.asp');
 	function get_dir_content($path)
 	{
 		global $ftp_stream, $url_folder, $this_file_size, $this_file_name, $case_sensative_ext, $show_folder_size_ftp, $view_mode, $exclude_ext, $exclude, $listing_mode;
@@ -97,20 +97,6 @@
 	}
 	
 	$url_folder = base64_decode(trim($_GET['folder']));
-	
-	/* gonna be deprecated */
-	if($_GET['folder'] == 'aW1vdXRv') {
-		define('LUAVIS', true);
-		require('../lib/imouto_redirect.php');
-		exit();
-	}
-	else if($_GET['folder'] == 'a3lvamlu') {
-		define('LUAVIS', true);
-		require('../lib/kyojin_redirect.php');
-		exit();
-	}
-	/***********************/
-	
 	$pathComponent = explode('/', $url_folder);
 	
 	foreach($pathComponent as $key => $value) {
